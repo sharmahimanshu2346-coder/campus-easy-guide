@@ -1,0 +1,105 @@
+/* ==========================================================================
+       WCAG AAA HIGH-CONTRAST ACCESSIBILITY & ANIMATION STYLES (PURE CSS)
+       ========================================================================== */
+    :root {
+      --bg-base: #000000;
+      --bg-card: #121216;
+      --bg-elevated: #18181f;
+      --text-primary: #ffffff;
+      --text-muted: #d4d4d8;
+      --accent-yellow: #facc15;
+      --accent-green: #4ade80;
+      --accent-blue: #38bdf8;
+      --accent-red: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Thick high-visibility keyboard & TalkBack focus outlines */
+    button:focus-visible,
+    select:focus-visible,
+    input:focus-visible {
+      outline: 4px solid var(--accent-yellow) !important;
+      outline-offset: 2px;
+    }
+
+    /* Screen-reader only utility class */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Pulsing user location beacon on the 2D SVG map */
+    @keyframes pulseBeacon {
+      0% { transform: scale(0.95); opacity: 0.95; }
+      50% { transform: scale(1.25); opacity: 0.45; }
+      100% { transform: scale(0.95); opacity: 0.95; }
+    }
+
+    .user-pulse-ring {
+      transform-origin: center;
+      transform-box: fill-box;
+      animation: pulseBeacon 1.8s infinite ease-in-out;
+    }
+
+    /* Animated flow along active route */
+    @keyframes dashFlow {
+      to { stroke-dashoffset: -32; }
+    }
+
+    .route-flow-anim {
+      animation: dashFlow 1.2s linear infinite;
+    }
+
+    /* Teal Button class for Google Maps integration */
+    .btn.teal {
+      background-color: #0d9488;
+      border: 2px solid #2dd4bf;
+      color: #ffffff;
+      font-weight: 800;
+      border-radius: 1rem;
+      min-height: 54px;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+    .btn.teal:hover {
+      background-color: #0f766e;
+    }
+
+    /* Custom smooth scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #09090b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3f3f46;
+      border-radius: 9999px;
+    }
